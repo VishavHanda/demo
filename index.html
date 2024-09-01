@@ -15,6 +15,404 @@
         <link rel="stylesheet" href="style.css"> 
         <link rel="stylesheet" href="mq.css">
     <title>FreshCart</title>
+
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+}
+
+html {
+    font-size: 14px;
+    height: 100%;
+}
+
+:root {
+    --header-width: 100vw;
+    --header-height: 25vh;
+    --header-A-width: 90%;
+    --font-fam-header-a: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --primary-clr: #0AAD0A;
+}
+
+ul, li {
+    list-style-type: none;
+}
+
+header {
+    width: var(--header-width);
+    height: var(--header-height);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-part-A {
+    width: var(--header-A-width);
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Container Styling */
+.city-cruncy-container,
+.Support-Delivery-Warranty {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.city-cruncy-container {
+    width: 20%; 
+    max-width: 170px;
+    justify-content: space-around;
+    margin-left: 1.5%;
+}
+
+.Support-Delivery-Warranty {
+    width: 25%;
+    max-width: 350px;
+    justify-content: space-between;
+    margin-right: 3%;
+}
+
+/* Dropdown Menu Styling */
+.country, .language-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.country a, .language-selector a,
+.Support-Delivery-Warranty a {
+    color: black;
+}
+
+.country .country-list, 
+.language-selector .language-list {
+    background-color: rgb(255, 255, 255);
+    width: 100px;
+    position: absolute;
+    top: 20px;
+    left: 1%;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #d7d7d7d8;
+    display: none;
+    z-index: 1;
+}
+
+.country-list li, 
+.language-list li {
+    padding: 4px;
+    border-bottom: px solid rgb(255, 255, 255);
+}
+
+.country-list li a:hover, 
+.language-list li a:hover {
+    color: var(--primary-clr);
+}
+
+/* Hover Effects */
+.country:hover .country-list, 
+.language-selector:hover .language-list {
+    display: block;
+}
+
+.country .material-symbols-outlined, 
+.language-selector .material-symbols-outlined {
+    display: inline;
+    transition: transform 0.5s ease;
+}
+
+.country:hover .material-symbols-outlined, 
+.language-selector:hover .material-symbols-outlined {
+    transform: rotate(180deg);
+}
+
+.Support-Delivery-Warranty a {
+    transition: all 0.2s ease;
+    color: var(--header-txt-clr);
+  }
+  
+  .Support-Delivery-Warranty a:hover {
+    transform: translateY(2px);
+    font-weight: 700;
+    color: var(--primary-clr);
+  }
+
+
+.header-part-B {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0px 0px 0px;
+    padding: 0px 4px 0px 0px;
+    width: 90%;
+    height: 30%;
+    height: 50px;
+  }
+  
+  .logo img {
+    width: 180px;
+  }
+  
+  .search {
+    width: 45%;
+    max-width: 600px;
+    height: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+  }
+  
+  #search-input {
+    outline: none;
+    height: 100%;
+    width: 80%; 
+     padding: 10px;
+    border-radius: 5px 0px 0px 5px;
+    border: 1px solid rgba(180, 180, 180, 0.707);
+    border-right: none;
+    flex: 1;
+  }
+  
+  
+  .search button {
+    background-color: var(--primary-clr);
+    height: 100%;
+    width: 20%;
+    padding: 0px 16px;
+    color: var(--txt-clr-white);
+    border-radius: 0px 5px 5px 0px;
+    border: 1px solid rgba(180, 180, 180, 0.707);
+    border-left: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .header-part-B-part-iii {
+  
+    display: flex;
+    width: 29%;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--header-txt-clr);
+  
+  }
+
+  #notification{
+    
+    position: relative;
+  }
+
+  .notif-num{
+    width: 14px;
+    height: 14px;
+    background-color: #ff0000df;
+    border-radius: 50%;
+    position: absolute;
+    top: -6.2px;
+    left: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .align {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .align a span {
+    font-weight: 200;
+    transition: all 0.2s;
+  }
+  
+  .align a span:hover {
+    transform: translateY(1.5px);
+    color: var(--primary-clr);
+    font-size: 1.7rem;
+    font-weight: 500;
+  }
+
+
+nav{
+width: 90%;
+}
+
+.navbar-container{
+    margin-top: 16px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.navbar-container > div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navbar-container > div a{
+    font-weight: 400;
+    color: black;
+    font-size: 1.1rem;
+}
+
+
+.all-Cat span, .home span, .shop span, .store span, .mega-menu span, .pages span, .account span, .dashboard span, .doc span{
+  font-size: 1.4rem;
+  margin-top: 3px;
+  font-weight: 300;
+  cursor: pointer;
+  
+}
+
+.home a:hover, .shop a:hover, .store a:hover, .mega-menu a:hover, .pages a:hover, .account a:hover, .dashboard a:hover, .doc a:hover{
+  color: var(--primary-clr);
+}
+
+.all-Cat {
+  position: relative;
+}
+
+
+.all-Cat:hover  .all-Cat-hover-con{   
+   
+} 
+
+
+.all-Cat span{
+  margin-top: -1px;
+}
+
+.all-Cat-a:hover{
+  color: var(--primary-clr);
+}
+
+
+.bottom-header{
+  position: absolute;
+  bottom: 0px;
+  width: 100vw;
+ border-top: 1px solid rgba(228, 228, 228, 0.919);
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom-header-container{
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+.bottom a span{
+  color: black;
+  font-size:1.5rem;
+}
+
+
+
+
+.all-Cat-hover-con{
+  background-color: rgb(255, 255, 255);
+  width: 250px;
+  height: 230px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start; 
+  border: 1px solid rgba(0, 0, 0, 0.212);
+  gap: 5px;
+  border-radius: 9px;
+  position: absolute;
+  top: 18px;
+  display: none;
+  
+}
+
+.all-Cat-hover-con > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px;
+  border-radius: 3px;
+
+  &:hover{
+    background-color: rgba(233, 233, 233, 0.329);
+    color: var(--primary-clr);
+  }
+
+} 
+
+.all-Cat-hover-con > div a{
+  color: rgba(0, 0, 0, 0.671);
+  font-size: 1rem;
+  
+}
+
+.fruits{
+  
+}
+
+.fruits-hover-conatiner{
+  position: absolute;
+  display: flex;
+  width: 450px;
+  height: 110px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.182);
+  background-color: white;
+  left: 250px;
+  top: 0.1rem;
+  display: none;
+
+}
+
+.fruits:hover .fruits-hover-conatiner{
+  display: flex;
+} 
+
+
+
+.fruits-hover-conatiner-box1{
+  
+  width: 150%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px;
+  
+}
+
+.fruits-hover-conatiner-box2{
+  
+  width: 150%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px;
+} 
+    </style>
 </head>
 
 <body>
